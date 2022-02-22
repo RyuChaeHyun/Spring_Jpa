@@ -70,6 +70,8 @@ public class OrderSimpleApiController {
         return orderSimpleQueryRepository.findOrderDtos();
     }
 
+
+
     //V2->V3->V4 순서로 우선순위
     @Data
     static class SimpleOrderDto{

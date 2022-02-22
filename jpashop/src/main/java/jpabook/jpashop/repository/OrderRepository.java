@@ -102,6 +102,17 @@ public class OrderRepository {
                 " join fetch oi.item i", Order.class)
                 .getResultList();
     }
+
+    //toOne은 fetch 조인을 많이 걸어도 된다
+    public List<Order> findAllWithMemberDelivery(int offset, int limit) {
+        return em.createQuery(
+                "select o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d", Order.class)
+                .setFirstResult(offset)
+                .setMaxResults(limit)
+                .getResultList();
+    }
 }
 
 
